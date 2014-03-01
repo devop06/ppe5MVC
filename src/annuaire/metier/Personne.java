@@ -1,5 +1,8 @@
-package metier;
+package annuaire.metier;
 
+
+import annuaire.main.Main;
+import java.util.ArrayList;
 /**
  *
  * @author tony
@@ -7,7 +10,8 @@ package metier;
 public class Personne {
     private long numPers;
     private String nomPers, prenomPers, emailPers, dateNaissancePers,organisationPers,observationPers;
-
+    private  ArrayList<Colloque>listeColloqueToOne = new ArrayList();
+    
     public Personne(long numPers, String nomPers, String prenomPers, String emailPers, String dateNaissancePers, String organisationPers, String observationPers) {
         this.numPers = numPers;
         this.nomPers = nomPers;
@@ -16,6 +20,13 @@ public class Personne {
         this.dateNaissancePers = dateNaissancePers;
         this.organisationPers = organisationPers;
         this.observationPers = observationPers;
+       
+    }
+    
+    public void ajouterPersToColloque(Colloque c)
+    {
+       // this.listeColloqueToOne.add(c);
+        this.listeColloqueToOne.add(c);
     }
 
     public long getNumPers() {

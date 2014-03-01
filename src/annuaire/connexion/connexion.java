@@ -13,7 +13,7 @@ public class connexion {
             MysqlDataSource data = new MysqlDataSource();
             data.setDatabaseName("ppe5");
             data.setUser("root");
-            data.setPassword("mysql");
+            data.setPassword("");
             try {
                 con = data.getConnection();
             } catch (SQLException ex) {
