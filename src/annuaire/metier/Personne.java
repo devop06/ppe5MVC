@@ -20,6 +20,7 @@ public class Personne {
         this.dateNaissancePers = dateNaissancePers;
         this.organisationPers = organisationPers;
         this.observationPers = observationPers;
+        this.listeColloqueToOne = new ArrayList();
        
     }
     

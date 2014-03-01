@@ -21,6 +21,7 @@ public class Colloque {
         this.intituleColloque = intituleColloque;
         this.dateDebutColloque = dateDebutColloque;
         this.descriptionColloque = descriptionColloque;
+        this.listeP = new ArrayList();
     }
     
     /**
