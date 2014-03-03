@@ -6,6 +6,8 @@
 
 package annuaire.view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tony
@@ -28,109 +30,155 @@ public class FrameMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        btnConsulter = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        panMenu = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
+        btnGestionPersonnes = new javax.swing.JButton();
+        btnGestionColloques = new javax.swing.JButton();
+        btnConsulter = new javax.swing.JButton();
+        btnImporter = new javax.swing.JButton();
+        btnQuitter = new javax.swing.JButton();
+
+        jButton5.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setText("APPLICATION GERER COLLOQUE");
+        panMenu.setBackground(new java.awt.Color(0, 102, 204));
 
-        jButton2.setText("Gestion Participants");
+        lblLogo.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\anthony\\Documents\\NetBeansProjects\\Ppe5Gestioncolloque\\src\\annuaire\\logo.jpg")); // NOI18N
 
-        jButton3.setText("Gestion colloques");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnGestionPersonnes.setText("Gestion personnes");
+        btnGestionPersonnes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnGestionPersonnesActionPerformed(evt);
             }
         });
 
-        btnConsulter.setText("Consultation des données");
-        btnConsulter.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnConsulterMouseClicked(evt);
+        btnGestionColloques.setText("Gestion colloques");
+        btnGestionColloques.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionColloquesActionPerformed(evt);
             }
         });
+
+        btnConsulter.setText("Consulter");
         btnConsulter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsulterActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Annuler");
+        btnImporter.setText("Importer");
+        btnImporter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImporterActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(88, 88, 88))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(166, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(176, 176, 176))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(jButton5))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(btnConsulter)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        btnQuitter.setText("Quitter");
+        btnQuitter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuitterActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panMenuLayout = new javax.swing.GroupLayout(panMenu);
+        panMenu.setLayout(panMenuLayout);
+        panMenuLayout.setHorizontalGroup(
+            panMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panMenuLayout.createSequentialGroup()
+                .addGroup(panMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panMenuLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(btnGestionPersonnes, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panMenuLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(btnImporter, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(panMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panMenuLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGestionColloques, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(75, 75, 75))
+                    .addGroup(panMenuLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(btnConsulter, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(106, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panMenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panMenuLayout.createSequentialGroup()
+                        .addComponent(lblLogo)
+                        .addGap(205, 205, 205))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panMenuLayout.createSequentialGroup()
+                        .addComponent(btnQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(220, 220, 220))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel2)
+        panMenuLayout.setVerticalGroup(
+            panMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panMenuLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(lblLogo)
+                .addGap(41, 41, 41)
+                .addGroup(panMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGestionPersonnes, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGestionColloques, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(46, 46, 46)
-                .addComponent(btnConsulter)
-                .addGap(44, 44, 44)
-                .addComponent(jButton5)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGroup(panMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnImporter, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsulter, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(btnQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitterActionPerformed
+        JOptionPane.showMessageDialog(null,"A bientot!","Message",JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+    }//GEN-LAST:event_btnQuitterActionPerformed
+
+    private void btnGestionPersonnesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionPersonnesActionPerformed
+        FrameGestionPersonnes fen = new FrameGestionPersonnes();    //Création de l'objet 
+        fen.setResizable(false);    //Pas de redimensionnement de la fenétre possible.
+        fen.setLocationRelativeTo(null);    //Fenêtre centrée au centre 
+        fen.setVisible(true);   //Afficher la fenêtre
+    }//GEN-LAST:event_btnGestionPersonnesActionPerformed
+
+    private void btnGestionColloquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionColloquesActionPerformed
+        FrameGestionColloques fen = new FrameGestionColloques();    //Création de l'objet
+        fen.setResizable(false);    //Pas de redimensionnement de la fenétre possible.
+        fen.setLocationRelativeTo(null);    //Fenêtre centrée au centre 
+        fen.setVisible(true);   //Afficher la fenêtre
+    }//GEN-LAST:event_btnGestionColloquesActionPerformed
+
+    private void btnImporterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImporterActionPerformed
+        FrameImporter fen = new FrameImporter();    //Création de l'objet
+        fen.setResizable(false);    //Pas de redimensionnement de la fenétre possible.
+        fen.setLocationRelativeTo(null);    //Fenêtre centrée au centre 
+        fen.setVisible(true);   //Afficher la fenêtre
+    }//GEN-LAST:event_btnImporterActionPerformed
 
     private void btnConsulterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsulterActionPerformed
-        // TODO add your handling code here:
+        FrameConsulter fen = new FrameConsulter();    //Création de l'objet
+        fen.setResizable(false);    //Pas de redimensionnement de la fenétre possible.
+        fen.setLocationRelativeTo(null);    //Fenêtre centrée au centre 
+        fen.setVisible(true);   //Afficher la fenêtre
     }//GEN-LAST:event_btnConsulterActionPerformed
-
-    private void btnConsulterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsulterMouseClicked
-        FrameConsultation frameConsultation = new FrameConsultation();
-        frameConsultation.setVisible(true);
-    }//GEN-LAST:event_btnConsulterMouseClicked
 
     /**
      * @param args the command line arguments
@@ -169,10 +217,12 @@ public class FrameMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsulter;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnGestionColloques;
+    private javax.swing.JButton btnGestionPersonnes;
+    private javax.swing.JButton btnImporter;
+    private javax.swing.JButton btnQuitter;
     private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblLogo;
+    private javax.swing.JPanel panMenu;
     // End of variables declaration//GEN-END:variables
 }
