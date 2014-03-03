@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * @version 1.0
  * @author tony
  */
+// string
 public class Colloque {
     
     private long numColloque;
