@@ -1,7 +1,7 @@
 
 package annuaire.view;
 
-import annuaire.controleur.controleurAnnuaire;
+import annuaire.controleur.controleurPersonne;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,13 +17,12 @@ import javax.swing.text.*;
 
 public class FrameTelepon extends javax.swing.JFrame {
 
-    controleurAnnuaire cbt;
+    controleurPersonne cbt;
 
 
       public FrameTelepon() {
         initComponents();
-        cbt = new controleurAnnuaire(this);
-        cbt.isiTable();
+        
     }
 
   
@@ -239,38 +238,32 @@ public class FrameTelepon extends javax.swing.JFrame {
 
     //action effectuée ou la gestion des événements du bouton d'insertion
     private void buttonAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAjouterActionPerformed
-        cbt.insert();
-        cbt.isiTable();
-        cbt.reset();
+   
     }//GEN-LAST:event_buttonAjouterActionPerformed
 
     //action effectuée ou la gestion des événements du bouton pour effacer les champs
     private void buttonEffacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEffacerActionPerformed
-        cbt.reset();
+       
     }//GEN-LAST:event_buttonEffacerActionPerformed
 
     //action effectuée ou la gestion des événements du bouton de MAJ
     private void buttonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateActionPerformed
-        cbt.update();
-        cbt.isiTable();
-        cbt.reset();
+        
     }//GEN-LAST:event_buttonUpdateActionPerformed
 
     //action effectuée ou la gestion des événements du bouton de suppression
     private void buttonSupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSupprimerActionPerformed
-        cbt.delete();
-        cbt.isiTable();
-        cbt.reset();
+    
     }//GEN-LAST:event_buttonSupprimerActionPerformed
 
     //la gestion des événements  clicksouris sur une table
     private void tabelDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDataMouseClicked
-        cbt.isiField(tabelData.getSelectedRow());
+       
     }//GEN-LAST:event_tabelDataMouseClicked
 
     //action effectuée ou la gestion des événements du bouton de recherche
     private void buttonRechercheNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRechercheNomActionPerformed
-        cbt.recherchenom();
+       
     }//GEN-LAST:event_buttonRechercheNomActionPerformed
 
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed

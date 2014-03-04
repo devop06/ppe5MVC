@@ -1,13 +1,14 @@
 
 package annuaire.model;
+import annuaire.metier.Personne;
 
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class tableModelAnnuaire extends AbstractTableModel {
-    List<annuaire> lb;
+    List<Personne> lb;
 
-    public tableModelAnnuaire(List<annuaire> lb) {
+    public tableModelAnnuaire(List<Personne> lb) {
         this.lb = lb;
     }
 
@@ -41,13 +42,13 @@ public class tableModelAnnuaire extends AbstractTableModel {
     public Object getValueAt(int row, int column) {
         switch (column) {
             case 0:
-                return lb.get(row).getId();
+                // return lb.get(row).getId();
             case 1:
-                return lb.get(row).getNum();
+               // return lb.get(row).getNum();
             case 2:
-                return lb.get(row).getNom();
+                return lb.get(row).getNomPers();
             case 3:
-                return lb.get(row).getAdresse();
+                // return lb.get(row).ge;
             default:
                 return null;
         }

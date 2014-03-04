@@ -1,7 +1,7 @@
 
 package annuaire.dao;
 import annuaire.connexion.connexion;
-import annuaire.model.annuaire;
+import annuaire.metier.Personne;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,32 +14,36 @@ import java.util.logging.Logger;
 
 
 
-public class daoAnnuaire implements implementAnnuaire {
+public class daoPersonne implements implementPersonne {
 
     Connection connection;
-    final String insert = "INSERT INTO annuaire (num, nom, adresse) VALUES ( ?, ?, ?);";
-    final String update = "UPDATE annuaire set num=?, nom=?, adresse=? where id=? ;";
-    final String delete = "DELETE FROM annuaire where id=? ;";
-    final String select = "SELECT * FROM annuaire;";
-    final String recherchenom = "SELECT * FROM annuaire where nom like ?";
+    final String insert = "INSERT INTO personne (nom_pers,prenom_pers,email_pers,date_naiss,organisation,observation) VALUES ( ?, ?, ?, ?, ?, ?);";
+    final String update = "UPDATE personne set num=?, nom=?, adresse=? where id=? ;";
+    final String delete = "DELETE FROM personne where id=? ;";
+    final String select = "SELECT * FROM personne;";
+    final String recherchenom = "SELECT * FROM personne where nom like ?";
 
-    public daoAnnuaire() {
+    public daoPersonne() {
         connection = connexion.connection();
     }
 
-    public void ajouter(annuaire b) {
-        PreparedStatement statement = null;
+    public void ajouter(Personne b) {
+        PreparedStatement statement = null; 
+       
         try {
             statement = connection.prepareStatement(insert);
-            statement.setString(1, b.getNum());
-            statement.setString(2, b.getNom());
-            statement.setString(3, b.getAdresse());
+            statement.setString(1,b.getNomPers() );
+            statement.setString(2, b.getPrenomPers());
+            statement.setString(3, b.getEmailPers());
+            statement.setString(4, b.getDateNaissancePers());
+            statement.setString(5, b.getOrganisationPers());
+            statement.setString(6, b.getObservationPers());
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
-            while (rs.next()) {
-                b.setId(rs.getInt(1));
+           /** while (rs.next()) {
+               b.setId(rs.getInt(1));
                
-            }
+            }*/
         } catch (SQLException ex) {
         } finally {
             try {
@@ -50,7 +54,23 @@ public class daoAnnuaire implements implementAnnuaire {
         }
     }
 
-    public void update(annuaire b) {
+    public void update(Personne b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void supprimer(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<Personne> getALL() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<Personne> getRechercheNom(String nom) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**public void update(Personne b) {
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(update);
@@ -89,14 +109,14 @@ public class daoAnnuaire implements implementAnnuaire {
         }
     }
 
-    public List<annuaire> getALL() {
-        List<annuaire> lb = null;
+    public List<Personne> getALL() {
+        List<Personne> lb = null;
         try {
-            lb = new ArrayList<annuaire>();
+            lb = new ArrayList<Personne>();
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(select);
             while (rs.next()) {
-                annuaire b = new annuaire();
+                Personne b = new Personne();
                 b.setId(rs.getInt("id"));
                 b.setNum(rs.getString("num"));
                 b.setNom(rs.getString("nom"));
@@ -104,21 +124,21 @@ public class daoAnnuaire implements implementAnnuaire {
                 lb.add(b);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(daoAnnuaire.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(daoPersonne.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return lb;
     }
 
-    public List<annuaire> getRechercheNom(String nom) {
-        List<annuaire> lb = null;
+    public List<Personne> getRechercheNom(String nom) {
+        List<Personne> lb = null;
         try {
-            lb = new ArrayList<annuaire>();
+            lb = new ArrayList<Personne>();
             PreparedStatement st = connection.prepareStatement(recherchenom);
             st.setString(1, "%" + nom + "%");
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                annuaire b = new annuaire();
+                Personne b = new Personne();
                 b.setId(rs.getInt("id"));
                 b.setNum(rs.getString("num"));
                 b.setNom(rs.getString("nom"));
@@ -126,8 +146,8 @@ public class daoAnnuaire implements implementAnnuaire {
                 lb.add(b);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(daoAnnuaire.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(daoPersonne.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lb;
-    }
+    }*/
 }
