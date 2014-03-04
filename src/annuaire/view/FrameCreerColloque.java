@@ -6,6 +6,14 @@
 
 package annuaire.view;
 
+import annuaire.controleur.controleurColloque;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author tony
@@ -17,6 +25,7 @@ public class FrameCreerColloque extends javax.swing.JFrame {
      */
     public FrameCreerColloque() {
         initComponents();
+       
     }
 
     /**
@@ -30,33 +39,153 @@ public class FrameCreerColloque extends javax.swing.JFrame {
 
         panCreerColloque = new javax.swing.JPanel();
         lblCreationEvnt = new javax.swing.JLabel();
+        txtIdColloque = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtIntitule = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
+        lblDuree = new javax.swing.JLabel();
+        txtDuree = new javax.swing.JTextField();
+        lblParticipantMax = new javax.swing.JLabel();
+        txtMaxPart = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        btnValiderColloque = new javax.swing.JButton();
+        btnAnnulerColloque = new javax.swing.JButton();
+        lblauto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lblCreationEvnt.setText("        Creation d'un évenement");
+        lblCreationEvnt.setText("        Création d'un évenement");
+
+        txtIdColloque.setText("Id de la colloque actuelle");
+        txtIdColloque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdColloqueActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Identifiant*: ");
+
+        jLabel2.setText("Intitulé: ");
+
+        txtIntitule.setText("jTextField2");
+
+        jLabel3.setText("Date: ");
+
+        txtDate.setText("jTextField1");
+        txtDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDateActionPerformed(evt);
+            }
+        });
+
+        lblDuree.setText("Durée: ");
+
+        txtDuree.setText("jTextField1");
+
+        lblParticipantMax.setText("Nombre max de participant: ");
+
+        txtMaxPart.setText("jTextField2");
+
+        jLabel4.setText("Description: ");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        btnValiderColloque.setText("Enregistrer");
+
+        btnAnnulerColloque.setText("Annuler");
+
+        lblauto.setForeground(new java.awt.Color(204, 0, 0));
+        lblauto.setText("*Numéro automatique");
 
         javax.swing.GroupLayout panCreerColloqueLayout = new javax.swing.GroupLayout(panCreerColloque);
         panCreerColloque.setLayout(panCreerColloqueLayout);
         panCreerColloqueLayout.setHorizontalGroup(
             panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panCreerColloqueLayout.createSequentialGroup()
+                .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panCreerColloqueLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(lblDuree)
+                            .addComponent(jLabel1)
+                            .addComponent(lblParticipantMax)
+                            .addComponent(jLabel4))
+                        .addGap(54, 54, 54)
+                        .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtMaxPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panCreerColloqueLayout.createSequentialGroup()
+                                .addComponent(txtIdColloque, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(81, 81, 81)
+                                .addComponent(lblauto))
+                            .addComponent(txtIntitule, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDuree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panCreerColloqueLayout.createSequentialGroup()
+                        .addGap(242, 242, 242)
+                        .addComponent(btnValiderColloque)
+                        .addGap(57, 57, 57)
+                        .addComponent(btnAnnulerColloque)))
+                .addContainerGap(112, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCreerColloqueLayout.createSequentialGroup()
-                .addContainerGap(258, Short.MAX_VALUE)
-                .addComponent(lblCreationEvnt, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(258, 258, 258))
+                .addContainerGap(173, Short.MAX_VALUE)
+                .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCreerColloqueLayout.createSequentialGroup()
+                        .addComponent(lblCreationEvnt, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(258, 258, 258))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCreerColloqueLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(97, 97, 97))))
         );
         panCreerColloqueLayout.setVerticalGroup(
             panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panCreerColloqueLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(lblCreationEvnt)
-                .addContainerGap(393, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtIdColloque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblauto))
+                .addGap(25, 25, 25)
+                .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtIntitule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDuree)
+                    .addComponent(txtDuree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblParticipantMax)
+                    .addComponent(txtMaxPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(jLabel4)
+                .addGap(1, 1, 1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnValiderColloque)
+                    .addComponent(btnAnnulerColloque))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panCreerColloque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panCreerColloque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,6 +194,14 @@ public class FrameCreerColloque extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtIdColloqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdColloqueActionPerformed
+                    // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdColloqueActionPerformed
+
+    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,8 +238,170 @@ public class FrameCreerColloque extends javax.swing.JFrame {
         });
     }
 
+    public JButton getBtnAnnulerColloque() {
+        return btnAnnulerColloque;
+    }
+
+    public void setBtnAnnulerColloque(JButton btnAnnulerColloque) {
+        this.btnAnnulerColloque = btnAnnulerColloque;
+    }
+
+    public JButton getBtnValiderColloque() {
+        return btnValiderColloque;
+    }
+
+    public void setBtnValiderColloque(JButton btnValiderColloque) {
+        this.btnValiderColloque = btnValiderColloque;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTextArea getjTextArea1() {
+        return jTextArea1;
+    }
+
+    public void setjTextArea1(JTextArea jTextArea1) {
+        this.jTextArea1 = jTextArea1;
+    }
+
+    public JLabel getLblCreationEvnt() {
+        return lblCreationEvnt;
+    }
+
+    public void setLblCreationEvnt(JLabel lblCreationEvnt) {
+        this.lblCreationEvnt = lblCreationEvnt;
+    }
+
+    public JLabel getLblDuree() {
+        return lblDuree;
+    }
+
+    public void setLblDuree(JLabel lblDuree) {
+        this.lblDuree = lblDuree;
+    }
+
+    public JLabel getLblParticipantMax() {
+        return lblParticipantMax;
+    }
+
+    public void setLblParticipantMax(JLabel lblParticipantMax) {
+        this.lblParticipantMax = lblParticipantMax;
+    }
+
+    public JLabel getLblauto() {
+        return lblauto;
+    }
+
+    public void setLblauto(JLabel lblauto) {
+        this.lblauto = lblauto;
+    }
+
+    public JPanel getPanCreerColloque() {
+        return panCreerColloque;
+    }
+
+    public void setPanCreerColloque(JPanel panCreerColloque) {
+        this.panCreerColloque = panCreerColloque;
+    }
+
+    public JTextField getTxtDate() {
+        return txtDate;
+    }
+
+    public void setTxtDate(JTextField txtDate) {
+        this.txtDate = txtDate;
+    }
+
+    public JTextField getTxtDuree() {
+        return txtDuree;
+    }
+
+    public void setTxtDuree(JTextField txtDuree) {
+        this.txtDuree = txtDuree;
+    }
+
+    public JTextField getTxtIdColloque() {
+        return txtIdColloque;
+    }
+
+    public void setTxtIdColloque(JTextField txtIdColloque) {
+        this.txtIdColloque = txtIdColloque;
+    }
+
+    public JTextField getTxtIntitule() {
+        return txtIntitule;
+    }
+
+    public void setTxtIntitule(JTextField txtIntitule) {
+        this.txtIntitule = txtIntitule;
+    }
+
+    public JTextField getTxtMaxPart() {
+        return txtMaxPart;
+    }
+
+    public void setTxtMaxPart(JTextField txtMaxPart) {
+        this.txtMaxPart = txtMaxPart;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAnnulerColloque;
+    private javax.swing.JButton btnValiderColloque;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblCreationEvnt;
+    private javax.swing.JLabel lblDuree;
+    private javax.swing.JLabel lblParticipantMax;
+    private javax.swing.JLabel lblauto;
     private javax.swing.JPanel panCreerColloque;
+    private javax.swing.JTextField txtDate;
+    private javax.swing.JTextField txtDuree;
+    private javax.swing.JTextField txtIdColloque;
+    private javax.swing.JTextField txtIntitule;
+    private javax.swing.JTextField txtMaxPart;
     // End of variables declaration//GEN-END:variables
 }

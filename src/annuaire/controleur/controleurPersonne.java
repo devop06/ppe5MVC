@@ -1,5 +1,3 @@
-
-
 /*
  * contrôleur de l'annuaire.java
  * by Foued BALBALI
@@ -17,5 +15,5 @@ import javax.swing.JOptionPane;
 
 public class controleurPersonne {
 
-   
+        
 }
