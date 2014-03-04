@@ -32,7 +32,7 @@ public class FrameGestionColloques extends javax.swing.JFrame {
         lblGestionColloques = new javax.swing.JLabel();
         btnFermer = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         panGestionColloques.setBackground(new java.awt.Color(0, 102, 102));
 

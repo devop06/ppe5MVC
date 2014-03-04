@@ -32,7 +32,7 @@ public class FrameConsulter extends javax.swing.JFrame {
         lblConsulter = new javax.swing.JLabel();
         btnFermer = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         panConsulter.setBackground(new java.awt.Color(0, 153, 153));
 
