@@ -117,8 +117,7 @@ public class FrameGestionColloques extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCreerEvenementActionPerformed
 
     private void btnCreerEvenementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreerEvenementMouseClicked
-            FrameCreerColloque frameCreation = new  FrameCreerColloque();
-            frameCreation.setVisible(true);
+          controleurColloque controleCreation = new controleurColloque();
     }//GEN-LAST:event_btnCreerEvenementMouseClicked
 
     /**

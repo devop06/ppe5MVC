@@ -13,19 +13,21 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import annuaire.dao.daoColloque;
 
 /**
  *
  * @author tony
  */
 public class FrameCreerColloque extends javax.swing.JFrame {
-
+    
+    daoColloque daoC = new daoColloque();;
     /**
      * Creates new form FrameCreerColloque
      */
     public FrameCreerColloque() {
-        initComponents();
-       
+        initComponents(); 
+        
     }
 
     /**
@@ -60,7 +62,8 @@ public class FrameCreerColloque extends javax.swing.JFrame {
 
         lblCreationEvnt.setText("        Création d'un évenement");
 
-        txtIdColloque.setText("Id de la colloque actuelle");
+        int idmax = this.daoC.getMaxId()+1;
+        txtIdColloque.setText(Integer.toString(idmax));
         txtIdColloque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdColloqueActionPerformed(evt);
@@ -122,8 +125,8 @@ public class FrameCreerColloque extends javax.swing.JFrame {
                         .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtMaxPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panCreerColloqueLayout.createSequentialGroup()
-                                .addComponent(txtIdColloque, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(81, 81, 81)
+                                .addComponent(txtIdColloque, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(114, 114, 114)
                                 .addComponent(lblauto))
                             .addComponent(txtIntitule, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDuree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
