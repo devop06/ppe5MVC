@@ -53,7 +53,7 @@ public class FrameCreerColloque extends javax.swing.JFrame {
         txtMaxPart = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtAreaDescription = new javax.swing.JTextArea();
         btnValiderColloque = new javax.swing.JButton();
         btnAnnulerColloque = new javax.swing.JButton();
         lblauto = new javax.swing.JLabel();
@@ -95,11 +95,16 @@ public class FrameCreerColloque extends javax.swing.JFrame {
 
         jLabel4.setText("Description: ");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtAreaDescription.setColumns(20);
+        txtAreaDescription.setRows(5);
+        jScrollPane1.setViewportView(txtAreaDescription);
 
         btnValiderColloque.setText("Enregistrer");
+        btnValiderColloque.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnValiderColloqueMouseClicked(evt);
+            }
+        });
 
         btnAnnulerColloque.setText("Annuler");
 
@@ -206,6 +211,11 @@ public class FrameCreerColloque extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDateActionPerformed
 
+    private void btnValiderColloqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValiderColloqueMouseClicked
+        controleurColloque cColloque = new controleurColloque();
+        cColloque.colloqueEnregistrement(this);
+    }//GEN-LAST:event_btnValiderColloqueMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -298,11 +308,11 @@ public class FrameCreerColloque extends javax.swing.JFrame {
     }
 
     public JTextArea getjTextArea1() {
-        return jTextArea1;
+        return txtAreaDescription;
     }
 
     public void setjTextArea1(JTextArea jTextArea1) {
-        this.jTextArea1 = jTextArea1;
+        this.txtAreaDescription = jTextArea1;
     }
 
     public JLabel getLblCreationEvnt() {
@@ -395,12 +405,12 @@ public class FrameCreerColloque extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblCreationEvnt;
     private javax.swing.JLabel lblDuree;
     private javax.swing.JLabel lblParticipantMax;
     private javax.swing.JLabel lblauto;
     private javax.swing.JPanel panCreerColloque;
+    private javax.swing.JTextArea txtAreaDescription;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtDuree;
     private javax.swing.JTextField txtIdColloque;

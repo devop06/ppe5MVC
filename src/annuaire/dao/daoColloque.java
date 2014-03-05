@@ -17,7 +17,7 @@ import java.util.List;
 public class daoColloque implements implementColloque{
     
     Connection con;
-    final String insert = "INSERT INTO colloque (intitule, date_debut, duree, nb_participant_max, description) VALUES ( ?, ?, ?, ?);";
+    final String insert = "INSERT INTO colloque (intitule, date_debut, duree, nb_participant_max, description) VALUES ( ?, ?, ?, ?, ?);";
     final String maxId = "SELECT maxid from maxid;";
     
     public daoColloque()
@@ -41,10 +41,12 @@ public class daoColloque implements implementColloque{
        }
        catch (SQLException ex) 
        {
+           System.out.println(ex.toString());
        }
        finally {
             try
             {
+                // marquer l'envoi réussi
                 statement.close();
             } catch (SQLException ex) 
             {

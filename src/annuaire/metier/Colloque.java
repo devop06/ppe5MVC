@@ -12,7 +12,16 @@ public class Colloque {
     private int dureeColloque,nbParticipantMax;
     private String intituleColloque,dateDebutColloque,descriptionColloque;
     private ArrayList<Personne> listeP;
-       
+    
+    /**
+     * Construit un objet Colloque
+     * @param numColloque long
+     * @param dureeColloque int 
+     * @param nbParticipantMax int
+     * @param intituleColloque String
+     * @param dateDebutColloque String
+     * @param descriptionColloque String
+     */
     public Colloque(long numColloque, int dureeColloque, int nbParticipantMax, String intituleColloque, String dateDebutColloque, String descriptionColloque) {
         
         this.numColloque = numColloque;
