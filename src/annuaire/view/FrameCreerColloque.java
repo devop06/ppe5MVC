@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import annuaire.dao.daoColloque;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,6 +28,7 @@ public class FrameCreerColloque extends javax.swing.JFrame {
      */
     public FrameCreerColloque() {
         initComponents(); 
+        this.setResizable(false);
         
     }
 
@@ -63,6 +65,7 @@ public class FrameCreerColloque extends javax.swing.JFrame {
         lblCreationEvnt.setText("        Création d'un évenement");
 
         int idmax = this.daoC.getMaxId()+1;
+        txtIdColloque.setEditable(false);
         txtIdColloque.setText(Integer.toString(idmax));
         txtIdColloque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,24 +77,23 @@ public class FrameCreerColloque extends javax.swing.JFrame {
 
         jLabel2.setText("Intitulé: ");
 
-        txtIntitule.setText("jTextField2");
+        jLabel3.setText("Date (aaaa-mm-dd): ");
 
-        jLabel3.setText("Date: ");
-
-        txtDate.setText("jTextField1");
         txtDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDateActionPerformed(evt);
             }
         });
 
-        lblDuree.setText("Durée: ");
-
-        txtDuree.setText("jTextField1");
+        lblDuree.setText("Durée (jours): ");
 
         lblParticipantMax.setText("Nombre max de participant: ");
 
-        txtMaxPart.setText("jTextField2");
+        txtMaxPart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMaxPartActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Description: ");
 
@@ -128,14 +130,15 @@ public class FrameCreerColloque extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(54, 54, 54)
                         .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtMaxPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panCreerColloqueLayout.createSequentialGroup()
                                 .addComponent(txtIdColloque, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(114, 114, 114)
                                 .addComponent(lblauto))
-                            .addComponent(txtIntitule, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDuree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panCreerColloqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtDuree, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtDate, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtIntitule, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
+                            .addComponent(txtMaxPart, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panCreerColloqueLayout.createSequentialGroup()
                         .addGap(242, 242, 242)
                         .addComponent(btnValiderColloque)
@@ -214,7 +217,15 @@ public class FrameCreerColloque extends javax.swing.JFrame {
     private void btnValiderColloqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValiderColloqueMouseClicked
         controleurColloque cColloque = new controleurColloque();
         cColloque.colloqueEnregistrement(this);
+        JOptionPane d = new JOptionPane();
+        d.showMessageDialog(this, "L'évenement a été créé avec succès !", "Enregistrement effectué", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+               
     }//GEN-LAST:event_btnValiderColloqueMouseClicked
+
+    private void txtMaxPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaxPartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMaxPartActionPerformed
 
     /**
      * @param args the command line arguments

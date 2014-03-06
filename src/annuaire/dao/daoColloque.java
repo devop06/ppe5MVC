@@ -46,13 +46,29 @@ public class daoColloque implements implementColloque{
        finally {
             try
             {
-                // marquer l'envoi réussi
                 statement.close();
+                
             } catch (SQLException ex) 
             {
                 ex.printStackTrace();
             }
        }
+    }
+    
+    public void update(Colloque b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void supprimer(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<Colloque> getALL() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<Colloque> getRechercheNom(String nom) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     /**
@@ -79,20 +95,4 @@ public class daoColloque implements implementColloque{
         return maxid;
     }
 
-    public void update(Colloque b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void supprimer(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public List<Colloque> getALL() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public List<Colloque> getRechercheNom(String nom) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

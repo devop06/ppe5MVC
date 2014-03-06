@@ -30,8 +30,7 @@ public class controleurColloque {
           
           Colloque c = new Colloque(numC,dureeColloque,nbParticipantMax,intituleColloque,dateDebutColloque,descriptionColloque);
           dao.ajouter(c);
-          
-          
+                  
       }
                
     
