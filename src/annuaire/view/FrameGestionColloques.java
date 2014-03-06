@@ -32,6 +32,7 @@ public class FrameGestionColloques extends javax.swing.JFrame {
         lblGestionColloques = new javax.swing.JLabel();
         btnFermer = new javax.swing.JButton();
         btnCreerEvenement = new javax.swing.JButton();
+        btnSupprimerEvnt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -60,23 +61,31 @@ public class FrameGestionColloques extends javax.swing.JFrame {
             }
         });
 
+        btnSupprimerEvnt.setText("Supprimer un évenement");
+        btnSupprimerEvnt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSupprimerEvntActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panGestionColloquesLayout = new javax.swing.GroupLayout(panGestionColloques);
         panGestionColloques.setLayout(panGestionColloquesLayout);
         panGestionColloquesLayout.setHorizontalGroup(
             panGestionColloquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panGestionColloquesLayout.createSequentialGroup()
+                .addGap(252, 252, 252)
+                .addComponent(lblGestionColloques, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(219, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panGestionColloquesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnFermer)
                 .addGap(49, 49, 49))
-            .addGroup(panGestionColloquesLayout.createSequentialGroup()
-                .addGroup(panGestionColloquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panGestionColloquesLayout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addComponent(lblGestionColloques, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panGestionColloquesLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(btnCreerEvenement)))
-                .addContainerGap(219, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panGestionColloquesLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(btnCreerEvenement)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSupprimerEvnt)
+                .addGap(81, 81, 81))
         );
         panGestionColloquesLayout.setVerticalGroup(
             panGestionColloquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +93,9 @@ public class FrameGestionColloques extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(lblGestionColloques)
                 .addGap(78, 78, 78)
-                .addComponent(btnCreerEvenement)
+                .addGroup(panGestionColloquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreerEvenement)
+                    .addComponent(btnSupprimerEvnt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
                 .addComponent(btnFermer)
                 .addGap(44, 44, 44))
@@ -109,13 +120,18 @@ public class FrameGestionColloques extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFermerActionPerformed
 
     private void btnCreerEvenementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreerEvenementActionPerformed
-        // TODO add your handling code here:
+       FrameCreerColloque frameCreer = new FrameCreerColloque();
+       frameCreer.setVisible(true);
     }//GEN-LAST:event_btnCreerEvenementActionPerformed
 
     private void btnCreerEvenementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreerEvenementMouseClicked
-          FrameCreerColloque frameCreer = new FrameCreerColloque();
-          frameCreer.setVisible(true);
+          
     }//GEN-LAST:event_btnCreerEvenementMouseClicked
+
+    private void btnSupprimerEvntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupprimerEvntActionPerformed
+        FrameSupprimerColloque frameDelete = new FrameSupprimerColloque();
+        frameDelete.setVisible(true);
+    }//GEN-LAST:event_btnSupprimerEvntActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,6 +171,7 @@ public class FrameGestionColloques extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreerEvenement;
     private javax.swing.JButton btnFermer;
+    private javax.swing.JButton btnSupprimerEvnt;
     private javax.swing.JLabel lblGestionColloques;
     private javax.swing.JPanel panGestionColloques;
     // End of variables declaration//GEN-END:variables

@@ -2,6 +2,7 @@ package annuaire.controleur;
 import annuaire.dao.daoColloque;
 import annuaire.metier.Colloque;
 import annuaire.view.FrameCreerColloque;
+import annuaire.view.FrameSupprimerColloque;
 
 
 
@@ -31,6 +32,11 @@ public class controleurColloque {
           Colloque c = new Colloque(numC,dureeColloque,nbParticipantMax,intituleColloque,dateDebutColloque,descriptionColloque);
           dao.ajouter(c);
                   
+      }
+      
+      public void colloqueSupprimer(FrameSupprimerColloque frameDelete)
+      {
+          // dao.supprimer(id);
       }
                
     

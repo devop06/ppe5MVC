@@ -109,6 +109,11 @@ public class FrameCreerColloque extends javax.swing.JFrame {
         });
 
         btnAnnulerColloque.setText("Annuler");
+        btnAnnulerColloque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnnulerColloqueActionPerformed(evt);
+            }
+        });
 
         lblauto.setForeground(new java.awt.Color(204, 0, 0));
         lblauto.setText("*Numéro automatique");
@@ -226,6 +231,10 @@ public class FrameCreerColloque extends javax.swing.JFrame {
     private void txtMaxPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaxPartActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaxPartActionPerformed
+
+    private void btnAnnulerColloqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnnulerColloqueActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnAnnulerColloqueActionPerformed
 
     /**
      * @param args the command line arguments
