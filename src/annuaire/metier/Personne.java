@@ -1,12 +1,7 @@
 package annuaire.metier;
-
-
 import annuaire.main.Main;
 import java.util.ArrayList;
-/**
- *
- * @author tony
- */
+
 public class Personne {
     private long numPers;
     private String nomPers, prenomPers, emailPers, dateNaissancePers,organisationPers,observationPers;

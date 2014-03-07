@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
  */
 public class FrameCreerColloque extends javax.swing.JFrame {
     
-    daoColloque daoC = new daoColloque();;
+    daoColloque daoC = new daoColloque();
     /**
      * Creates new form FrameCreerColloque
      */
@@ -107,8 +107,18 @@ public class FrameCreerColloque extends javax.swing.JFrame {
                 btnValiderColloqueMouseClicked(evt);
             }
         });
+        btnValiderColloque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValiderColloqueActionPerformed(evt);
+            }
+        });
 
         btnAnnulerColloque.setText("Annuler");
+        btnAnnulerColloque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnnulerColloqueActionPerformed(evt);
+            }
+        });
 
         lblauto.setForeground(new java.awt.Color(204, 0, 0));
         lblauto.setText("*Numéro automatique");
@@ -215,17 +225,25 @@ public class FrameCreerColloque extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDateActionPerformed
 
     private void btnValiderColloqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValiderColloqueMouseClicked
-        controleurColloque cColloque = new controleurColloque();
-        cColloque.colloqueEnregistrement(this);
-        JOptionPane d = new JOptionPane();
-        d.showMessageDialog(this, "L'évenement a été créé avec succès !", "Enregistrement effectué", JOptionPane.INFORMATION_MESSAGE);
-        this.dispose();
+        
                
     }//GEN-LAST:event_btnValiderColloqueMouseClicked
 
     private void txtMaxPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaxPartActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaxPartActionPerformed
+
+    private void btnAnnulerColloqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnnulerColloqueActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnAnnulerColloqueActionPerformed
+
+    private void btnValiderColloqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderColloqueActionPerformed
+        controleurColloque cColloque = new controleurColloque();
+        cColloque.colloqueEnregistrement(this);
+        JOptionPane d = new JOptionPane();
+        JOptionPane.showMessageDialog(this, "L'évenement a été créé avec succès !", "Enregistrement effectué", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+    }//GEN-LAST:event_btnValiderColloqueActionPerformed
 
     /**
      * @param args the command line arguments

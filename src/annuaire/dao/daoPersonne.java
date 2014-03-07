@@ -17,27 +17,27 @@ import java.util.logging.Logger;
 public class daoPersonne implements implementPersonne {
 
     Connection connection;
-    final String insert = "INSERT INTO personne (nom_pers,prenom_pers,email_pers,date_naiss,organisation,observation) VALUES ( ?, ?, ?, ?, ?, ?);";
+    final String insert = "INSERT INTO personne (nom_pers,prenom_pers,email_pers,date_naiss,organisation,observations) VALUES ( ?, ?, ?, ?, ?, ?);";
     final String update = "UPDATE personne set num=?, nom=?, adresse=? where id=? ;";
     final String delete = "DELETE FROM personne where id=? ;";
     final String select = "SELECT * FROM personne;";
     final String recherchenom = "SELECT * FROM personne where nom like ?";
-
+    final String maxId = "SELECT maxidP from maxidp;";
     public daoPersonne() {
         connection = connexion.connection();
     }
 
-    public void ajouter(Personne b) {
+    public void ajouter(Personne p) {
         PreparedStatement statement = null; 
        
         try {
             statement = connection.prepareStatement(insert);
-            statement.setString(1,b.getNomPers() );
-            statement.setString(2, b.getPrenomPers());
-            statement.setString(3, b.getEmailPers());
-            statement.setString(4, b.getDateNaissancePers());
-            statement.setString(5, b.getOrganisationPers());
-            statement.setString(6, b.getObservationPers());
+            statement.setString(1, p.getNomPers() );
+            statement.setString(2, p.getPrenomPers());
+            statement.setString(3, p.getEmailPers());
+            statement.setString(4, p.getDateNaissancePers());
+            statement.setString(5, p.getOrganisationPers());
+            statement.setString(6, p.getObservationPers());
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
            /** while (rs.next()) {
@@ -45,11 +45,12 @@ public class daoPersonne implements implementPersonne {
                
             }*/
         } catch (SQLException ex) {
+            //System.out.println(ex.toString());
         } finally {
             try {
                 statement.close();
             } catch (SQLException ex) {
-                ex.printStackTrace();
+                //ex.printStackTrace();
             }
         }
     }
@@ -150,4 +151,24 @@ public class daoPersonne implements implementPersonne {
         }
         return lb;
     }*/
+    
+     public int getMaxIdP()
+    {
+        Statement stm ;
+        ResultSet resultats;
+        int maxid = -1;
+        try{
+            stm =  connection.createStatement();
+            resultats = stm.executeQuery(maxId);
+            resultats.next();
+            maxid = resultats.getInt("maxidP");
+            
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e.toString());
+        }
+       
+        return maxid;
+    }
 }
