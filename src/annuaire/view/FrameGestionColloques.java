@@ -33,6 +33,7 @@ public class FrameGestionColloques extends javax.swing.JFrame {
         btnFermer = new javax.swing.JButton();
         btnCreerEvenement = new javax.swing.JButton();
         btnSupprimerEvnt = new javax.swing.JButton();
+        btnModifier = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -68,14 +69,17 @@ public class FrameGestionColloques extends javax.swing.JFrame {
             }
         });
 
+        btnModifier.setText("Modifier un évènement");
+        btnModifier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifierActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panGestionColloquesLayout = new javax.swing.GroupLayout(panGestionColloques);
         panGestionColloques.setLayout(panGestionColloquesLayout);
         panGestionColloquesLayout.setHorizontalGroup(
             panGestionColloquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panGestionColloquesLayout.createSequentialGroup()
-                .addGap(252, 252, 252)
-                .addComponent(lblGestionColloques, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(219, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panGestionColloquesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnFermer)
@@ -85,7 +89,13 @@ public class FrameGestionColloques extends javax.swing.JFrame {
                 .addComponent(btnCreerEvenement)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSupprimerEvnt)
-                .addGap(81, 81, 81))
+                .addGap(59, 59, 59))
+            .addGroup(panGestionColloquesLayout.createSequentialGroup()
+                .addGap(252, 252, 252)
+                .addGroup(panGestionColloquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnModifier)
+                    .addComponent(lblGestionColloques, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
         panGestionColloquesLayout.setVerticalGroup(
             panGestionColloquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,7 +106,9 @@ public class FrameGestionColloques extends javax.swing.JFrame {
                 .addGroup(panGestionColloquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreerEvenement)
                     .addComponent(btnSupprimerEvnt))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addComponent(btnModifier)
+                .addGap(105, 105, 105)
                 .addComponent(btnFermer)
                 .addGap(44, 44, 44))
         );
@@ -134,6 +146,11 @@ public class FrameGestionColloques extends javax.swing.JFrame {
         FrameSupprimerColloque frameDelete = new FrameSupprimerColloque();
         frameDelete.setVisible(true);
     }//GEN-LAST:event_btnSupprimerEvntActionPerformed
+
+    private void btnModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifierActionPerformed
+        FrameModifierEvenement frmModifier = new FrameModifierEvenement();
+        frmModifier.setVisible(true);
+    }//GEN-LAST:event_btnModifierActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +190,7 @@ public class FrameGestionColloques extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreerEvenement;
     private javax.swing.JButton btnFermer;
+    private javax.swing.JButton btnModifier;
     private javax.swing.JButton btnSupprimerEvnt;
     private javax.swing.JLabel lblGestionColloques;
     private javax.swing.JPanel panGestionColloques;

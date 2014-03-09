@@ -22,7 +22,9 @@ public class daoColloque implements implementColloque{
     final String insert = "INSERT INTO colloque (intitule, date_debut, duree, nb_participant_max, description) VALUES ( ?, ?, ?, ?, ?);";
     final String delete = "delete from colloque where num_col = ?";
     final String maxId = "SELECT maxid from maxid;";
-    final String selectAll = "SELECT * from colloque";
+    final String selectAll = "SELECT * from colloque;";
+    final String selectOne = "SELECT * from colloque where num_col =";
+    final String update = "UPDATE colloque set intitule = ?, date_debut = ?, duree = ? ,nb_participant_max = ?, description = ? where num_col = ? ;";
     
     public daoColloque()
     {
@@ -62,8 +64,39 @@ public class daoColloque implements implementColloque{
        }
     }
     
-    public void update(Colloque b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * Procédure: Met à jour une colloque dans la base de donnée. 
+     * @param numColloque numéro de colloque (primary key)
+     */
+    public void update(Colloque c) {
+       
+       PreparedStatement statement = null; 
+       try
+       {
+            statement = con.prepareStatement(update);        
+            statement.setString(1, c.getIntituleColloque());
+            statement.setString(2, c.getDateDebutColloque());
+            statement.setInt(3, c.getDureeColloque());
+            statement.setInt(4, c.getNbParticipantMax());
+            statement.setString(5, c.getDescriptionColloque());
+            statement.setLong(6, c.getNumColloque());
+            
+            statement.executeUpdate();
+       }
+       catch (SQLException ex) 
+       {
+           System.out.println(ex.toString());
+       }
+       finally {
+            try
+            {
+                statement.close();
+                
+            } catch (SQLException ex) 
+            {
+                ex.printStackTrace();
+            }
+       }
     }
    
     /**
@@ -137,9 +170,47 @@ public class daoColloque implements implementColloque{
         
         return listeColloque;    
     }
-
-    public List<Colloque> getRechercheNom(String nom) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    /**
+     * Retourne une colloque avec pour argument le numéro de colloque désiré
+     * @param numColloque
+     * @return Colloque
+     */
+    public  Colloque getUneColloque(int numColloque) {
+        
+        Statement stm ;
+        ResultSet resultats;
+        Colloque c = null;
+        // déclaration des variables pour la création de la colloque
+        long numC;
+        int nbParticipantMax;
+        int dureeColloque;
+        String intituleColloque; 
+        String dateDebutColloque;
+        String descriptionColloque;
+          
+        try{
+            stm =  con.createStatement();
+            resultats = stm.executeQuery(selectOne + numColloque);
+            resultats.next();
+            
+            numC = resultats.getLong("num_col");
+             nbParticipantMax = resultats.getInt("nb_participant_max");
+                dureeColloque = resultats.getInt("duree");
+                intituleColloque = resultats.getString("intitule");
+                dateDebutColloque = resultats.getString("date_debut");
+                descriptionColloque = resultats.getString("description");
+                c  = new Colloque(numC,dureeColloque, nbParticipantMax, intituleColloque, dateDebutColloque,descriptionColloque);
+             
+            
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e.toString());
+        }
+        
+        return c;    
+        
     }
     
     /**

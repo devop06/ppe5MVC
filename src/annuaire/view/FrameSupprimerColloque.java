@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package annuaire.view;
 
 import annuaire.controleur.controleurColloque;
@@ -98,9 +92,9 @@ public class FrameSupprimerColloque extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jcbIntitule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(btnDelete)
-                .addGap(10, 10, 10)
+                .addGap(24, 24, 24)
                 .addComponent(lblAttention)
                 .addContainerGap())
         );
@@ -118,7 +112,10 @@ public class FrameSupprimerColloque extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Damande confirmation et supprime une colloque
+     * @param evt 
+     */
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
                   
           int result = JOptionPane.showConfirmDialog(null,  "Etes-vous sûr de vouloir supprimer cet évènement ?","Suppression de la colloque", JOptionPane.YES_NO_OPTION);

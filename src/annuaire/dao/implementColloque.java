@@ -10,13 +10,13 @@ public interface implementColloque {
 
     public void ajouter(Colloque b);
 
-    public void update(Colloque b);
+    public void update(Colloque uneColloque);
 
     public void supprimer(int id);
 
     public  List<Colloque> getALL();
 
-    public List<Colloque> getRechercheNom(String nom);
+    public Colloque getUneColloque(int numColloque);
 
 
 }
