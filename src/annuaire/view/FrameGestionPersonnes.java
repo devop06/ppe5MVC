@@ -31,6 +31,7 @@ public class FrameGestionPersonnes extends javax.swing.JFrame {
         panGestionPersonnes = new javax.swing.JPanel();
         lblGestionPersonnes = new javax.swing.JLabel();
         btnFermer = new javax.swing.JButton();
+        btnCreerPersonne = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -47,25 +48,39 @@ public class FrameGestionPersonnes extends javax.swing.JFrame {
             }
         });
 
+        btnCreerPersonne.setText("Créer personne");
+        btnCreerPersonne.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreerPersonneActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panGestionPersonnesLayout = new javax.swing.GroupLayout(panGestionPersonnes);
         panGestionPersonnes.setLayout(panGestionPersonnesLayout);
         panGestionPersonnesLayout.setHorizontalGroup(
             panGestionPersonnesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panGestionPersonnesLayout.createSequentialGroup()
-                .addGap(221, 221, 221)
-                .addComponent(lblGestionPersonnes, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(232, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panGestionPersonnesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnFermer)
                 .addGap(43, 43, 43))
+            .addGroup(panGestionPersonnesLayout.createSequentialGroup()
+                .addGroup(panGestionPersonnesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panGestionPersonnesLayout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(lblGestionPersonnes, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panGestionPersonnesLayout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(btnCreerPersonne)))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
         panGestionPersonnesLayout.setVerticalGroup(
             panGestionPersonnesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panGestionPersonnesLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(lblGestionPersonnes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addComponent(btnCreerPersonne)
+                .addGap(119, 119, 119)
                 .addComponent(btnFermer)
                 .addGap(38, 38, 38))
         );
@@ -87,6 +102,13 @@ public class FrameGestionPersonnes extends javax.swing.JFrame {
     private void btnFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFermerActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnFermerActionPerformed
+
+    private void btnCreerPersonneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreerPersonneActionPerformed
+        FrameCreerPersonne fen = new FrameCreerPersonne();    //Création de l'objet
+        fen.setResizable(false);    //Pas de redimensionnement de la fenétre possible.
+        fen.setLocationRelativeTo(null);    //Fenêtre centrée au centre 
+        fen.setVisible(true);   //Afficher la fenêtre
+    }//GEN-LAST:event_btnCreerPersonneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,6 +146,7 @@ public class FrameGestionPersonnes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreerPersonne;
     private javax.swing.JButton btnFermer;
     private javax.swing.JLabel lblGestionPersonnes;
     private javax.swing.JPanel panGestionPersonnes;

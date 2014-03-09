@@ -4,8 +4,10 @@ import annuaire.view.FrameMenu;
 public class Main {
     
     public static void main(String[] args) {
-       FrameMenu frameMain = new FrameMenu();
-       frameMain.setVisible(true);
+       FrameMenu fen = new FrameMenu();
+       fen.setLocationRelativeTo(null);    //Fenêtre centrée au centre 
+       fen.setVisible(true);   //Afficher la fenêtre
+       fen.setVisible(true);
        
     }
 }

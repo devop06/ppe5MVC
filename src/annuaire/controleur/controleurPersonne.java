@@ -1,19 +1,35 @@
-/*
- * contrôleur de l'annuaire.java
- * by Foued BALBALI
- * 
- */
 package annuaire.controleur;
-
 import annuaire.dao.daoPersonne;
-import annuaire.dao.implementPersonne;
 import annuaire.metier.Personne;
-import annuaire.model.tableModelAnnuaire;
-import annuaire.view.FrameTelepon;
-import java.util.List;
-import javax.swing.JOptionPane;
+import annuaire.view.FrameCreerPersonne;
 
+
+
+/**
+ * @author tony
+ */
 public class controleurPersonne {
-
-        
+  
+      daoPersonne dao;
+      
+      public controleurPersonne()
+      {
+          dao = new daoPersonne();
+      }
+           
+      public void personneEnregistrement(FrameCreerPersonne frame)
+      {
+          long numPers = Long.parseLong(frame.getTxtNumeroPersonne().getText());
+          String nomPers = frame.getTxtNomPersonne().getText();
+          String prenomPers = frame.getTxtPrenomPersonne().getText();
+          String emailPers = frame.getTxtEmailPersonne().getText();
+          String dateNaissancePers = frame.getTxtDateNaissancePersonne().getText();
+          String organisationPers = frame.getTxtOrganisation().getText();
+          String observationPers = frame.getTxtaObservationPersonne().getText();
+          Personne p = new Personne(numPers,nomPers,prenomPers,emailPers,dateNaissancePers,organisationPers,observationPers);
+          dao.ajouter(p);
+                  
+      }
+               
+    
 }
