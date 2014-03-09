@@ -30,6 +30,13 @@ public class controleurPersonne {
           dao.ajouter(p);
                   
       }
+      
+      public void personneAjoutBase(Personne p)
+      {
+          dao.ajouter(p);
+      }
+
+}
                
     
-}
+
