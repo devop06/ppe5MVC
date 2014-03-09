@@ -58,7 +58,7 @@ public class FrameCreerPersonne extends javax.swing.JFrame {
         txtOrganisation = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnCreer.setBackground(new java.awt.Color(51, 204, 0));
 
@@ -220,7 +220,7 @@ public class FrameCreerPersonne extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnnulerActionPerformed
 
     private void txtEmailPersonneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailPersonneActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here
     }//GEN-LAST:event_txtEmailPersonneActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

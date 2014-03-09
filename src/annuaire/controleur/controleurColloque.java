@@ -36,7 +36,8 @@ public class controleurColloque {
       
       public void colloqueSupprimer(FrameSupprimerColloque frameDelete)
       {
-          // dao.supprimer(id);
+         // frameDelete.gett
+          // this.dao.supprimer(id);
       }
                
     

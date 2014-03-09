@@ -14,7 +14,7 @@ public interface implementColloque {
 
     public void supprimer(int id);
 
-    public List<Colloque> getALL();
+    public  List<Colloque> getALL();
 
     public List<Colloque> getRechercheNom(String nom);
 

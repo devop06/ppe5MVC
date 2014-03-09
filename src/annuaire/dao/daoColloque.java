@@ -17,14 +17,16 @@ import java.util.List;
  */
 public class daoColloque implements implementColloque{
     
-    ArrayList<Colloque> listeColloque;
+  
     Connection con;
     final String insert = "INSERT INTO colloque (intitule, date_debut, duree, nb_participant_max, description) VALUES ( ?, ?, ?, ?, ?);";
     final String delete = "delete from colloque where num_col = ?";
     final String maxId = "SELECT maxid from maxid;";
+    final String selectAll = "SELECT * from colloque";
     
     public daoColloque()
     {
+        
         con = connexion.connection();     
     }
     /**
@@ -93,13 +95,47 @@ public class daoColloque implements implementColloque{
     }
     
     /**
-     * Retourne un tableau de colloque
+     * Retourne un tableau de colloque chargé grâce aux informations 
+     * de la base de donnée
      * @return ArrayList tableau de colloque
      */
     public List<Colloque> getALL() {
-        this.listeColloque = new ArrayList();
         
-        return listeColloque;
+        ArrayList<Colloque> listeColloque = new ArrayList();  
+        Statement stm ;
+        ResultSet resultats;
+        // déclaration des variables pour la création de la colloque
+        long numC;
+        int nbParticipantMax;
+        int dureeColloque;
+        String intituleColloque; 
+        String dateDebutColloque;
+        String descriptionColloque;
+          
+        try{
+            stm =  con.createStatement();
+            resultats = stm.executeQuery(selectAll);
+            Colloque c;
+            
+            while(resultats.next())
+            {
+                numC = resultats.getLong("num_col");
+                nbParticipantMax = resultats.getInt("nb_participant_max");
+                dureeColloque = resultats.getInt("duree");
+                intituleColloque = resultats.getString("intitule");
+                dateDebutColloque = resultats.getString("date_debut");
+                descriptionColloque = resultats.getString("description");
+                c  = new Colloque(numC,dureeColloque, nbParticipantMax, intituleColloque, dateDebutColloque,descriptionColloque);
+                listeColloque.add(c);
+            }   
+            
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e.toString());
+        }
+        
+        return listeColloque;    
     }
 
     public List<Colloque> getRechercheNom(String nom) {

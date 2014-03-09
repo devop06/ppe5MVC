@@ -12,7 +12,6 @@ public class Colloque {
     private long numColloque;
     private int dureeColloque,nbParticipantMax;
     private String intituleColloque,dateDebutColloque,descriptionColloque;
-    private ArrayList<Personne> listeP;
     
     /**
      * Construit un objet Colloque
@@ -31,7 +30,6 @@ public class Colloque {
         this.intituleColloque = intituleColloque;
         this.dateDebutColloque = dateDebutColloque;
         this.descriptionColloque = descriptionColloque;
-        this.listeP = new ArrayList();
     }
     
     /**
@@ -41,7 +39,7 @@ public class Colloque {
      */
     public void ajouterPersonne(Personne p)
     {
-        this.listeP.add(p);
+        //this.listeP.add(p);
     }
     
     public long getNumColloque() {
@@ -90,6 +88,11 @@ public class Colloque {
 
     public void setDescriptionColloque(String descriptionColloque) {
         this.descriptionColloque = descriptionColloque;
+    }
+
+    @Override
+    public String toString() {
+        return "Colloque{" + "numColloque=" + numColloque + ", dureeColloque=" + dureeColloque + ", nbParticipantMax=" + nbParticipantMax + ", intituleColloque=" + intituleColloque + ", dateDebutColloque=" + dateDebutColloque + ", descriptionColloque=" + descriptionColloque;
     }
     
     
