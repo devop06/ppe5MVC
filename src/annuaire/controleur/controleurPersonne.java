@@ -35,7 +35,21 @@ public class controleurPersonne {
       {
           dao.ajouter(p);
       }
-
+      
+      public boolean getExtension(String fichier)
+      {
+          String extension = "";
+          int mid = fichier.lastIndexOf(".");
+          extension = fichier.substring(mid+1,fichier.length());
+          if (extension.compareTo("csv") == 0)
+          {
+              return true;
+          }else{
+              return false;
+          }
+          
+      }
+     
 }
                
     

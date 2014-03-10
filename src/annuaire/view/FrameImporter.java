@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.StringTokenizer;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -45,6 +46,7 @@ String chemin;
         txtChemin = new javax.swing.JTextField();
         lblInfo = new javax.swing.JLabel();
         btnImporter = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -80,23 +82,13 @@ String chemin;
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("avec comme séparateur une virgule : ,");
+
         javax.swing.GroupLayout panImporterLayout = new javax.swing.GroupLayout(panImporter);
         panImporter.setLayout(panImporterLayout);
         panImporterLayout.setHorizontalGroup(
             panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panImporterLayout.createSequentialGroup()
-                .addGroup(panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panImporterLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(txtChemin, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnParcourir))
-                    .addGroup(panImporterLayout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addGroup(panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblInfo))))
-                .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panImporterLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,6 +98,22 @@ String chemin;
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panImporterLayout.createSequentialGroup()
                         .addComponent(btnImporter)
                         .addGap(155, 155, 155))))
+            .addGroup(panImporterLayout.createSequentialGroup()
+                .addGroup(panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panImporterLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(txtChemin, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnParcourir))
+                    .addGroup(panImporterLayout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addGroup(panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblInfo)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panImporterLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel2)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         panImporterLayout.setVerticalGroup(
             panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,7 +122,9 @@ String chemin;
                 .addComponent(jLabel1)
                 .addGap(68, 68, 68)
                 .addComponent(lblInfo)
-                .addGap(78, 78, 78)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(44, 44, 44)
                 .addGroup(panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtChemin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnParcourir))
@@ -151,12 +161,19 @@ String chemin;
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filtre = new FileNameExtensionFilter(".csv", "csv");
         chooser.setFileFilter(filtre);
-        chooser.setFileFilter(null);
         int returnVal = chooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File selection = chooser.getSelectedFile();
             this.chemin = selection.getAbsolutePath();
-            txtChemin.setText(this.chemin);
+            
+            controleurPersonne pPersonne = new controleurPersonne();
+            if(pPersonne.getExtension(this.chemin))
+            {
+                txtChemin.setText(this.chemin);
+            }else{
+                JOptionPane.showMessageDialog(this, "Seul les fichier .csv son acceptés !", "Probléme extension de fichier", JOptionPane.WARNING_MESSAGE);
+            }
+            
         }
         
     }//GEN-LAST:event_btnParcourirActionPerformed
@@ -200,7 +217,7 @@ String chemin;
            
             
         }catch (Exception exception) {
-              System.out.println(exception.toString());
+              JOptionPane.showMessageDialog(this, "Probléme séparateur csv", "Probléme", JOptionPane.WARNING_MESSAGE);
 	}
     }//GEN-LAST:event_btnImporterActionPerformed
 
@@ -243,6 +260,7 @@ String chemin;
     private javax.swing.JButton btnParcourir;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblInfo;
     private javax.swing.JPanel panImporter;
     private javax.swing.JTextField txtChemin;
