@@ -6,12 +6,22 @@
 
 package annuaire.view;
 
+import annuaire.controleur.controleurPersonne;
+import annuaire.metier.Personne;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.StringTokenizer;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author anthony
  */
 public class FrameImporter extends javax.swing.JFrame {
-
+String chemin;
     /**
      * Creates new form FrameImporter
      */
@@ -32,6 +42,11 @@ public class FrameImporter extends javax.swing.JFrame {
         panImporter = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnFermer = new javax.swing.JButton();
+        btnParcourir = new javax.swing.JButton();
+        txtChemin = new javax.swing.JTextField();
+        lblInfo = new javax.swing.JLabel();
+        btnImporter = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -50,38 +65,89 @@ public class FrameImporter extends javax.swing.JFrame {
             }
         });
 
+        btnParcourir.setText("Parcourir");
+        btnParcourir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnParcourirActionPerformed(evt);
+            }
+        });
+
+        lblInfo.setForeground(new java.awt.Color(255, 255, 255));
+        lblInfo.setText("Type de fichier : CSV");
+
+        btnImporter.setText("Importer !");
+        btnImporter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImporterActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("avec comme séparateur une virgule : ,");
+
         javax.swing.GroupLayout panImporterLayout = new javax.swing.GroupLayout(panImporter);
         panImporter.setLayout(panImporterLayout);
         panImporterLayout.setHorizontalGroup(
             panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panImporterLayout.createSequentialGroup()
-                .addGap(259, 259, 259)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(257, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panImporterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnFermer)
-                .addGap(33, 33, 33))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panImporterLayout.createSequentialGroup()
+                        .addComponent(btnFermer)
+                        .addGap(112, 112, 112))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panImporterLayout.createSequentialGroup()
+                        .addComponent(btnImporter)
+                        .addGap(155, 155, 155))))
+            .addGroup(panImporterLayout.createSequentialGroup()
+                .addGroup(panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panImporterLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(txtChemin, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnParcourir))
+                    .addGroup(panImporterLayout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addGroup(panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblInfo)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panImporterLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel2)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         panImporterLayout.setVerticalGroup(
             panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panImporterLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(31, 31, 31)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 299, Short.MAX_VALUE)
+                .addGap(68, 68, 68)
+                .addComponent(lblInfo)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(44, 44, 44)
+                .addGroup(panImporterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtChemin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnParcourir))
+                .addGap(40, 40, 40)
+                .addComponent(btnImporter)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(btnFermer)
-                .addGap(32, 32, 32))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panImporter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panImporter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panImporter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panImporter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,9 +157,71 @@ public class FrameImporter extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnFermerActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnParcourirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParcourirActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filtre = new FileNameExtensionFilter(".csv", "csv");
+        chooser.setFileFilter(filtre);
+        int returnVal = chooser.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File selection = chooser.getSelectedFile();
+            this.chemin = selection.getAbsolutePath();
+            
+            controleurPersonne pPersonne = new controleurPersonne();
+            if(pPersonne.getExtension(this.chemin))
+            {
+                txtChemin.setText(this.chemin);
+            }else{
+                JOptionPane.showMessageDialog(this, "Seul les fichier .csv son acceptés !", "Probléme extension de fichier", JOptionPane.WARNING_MESSAGE);
+            }
+            
+        }
+        
+    }//GEN-LAST:event_btnParcourirActionPerformed
+
+    private void btnImporterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImporterActionPerformed
+        String tableauElement[] = new String[6]; 
+        Personne p;
+        int compteur = 0;
+        String chaine = "";
+        try{
+            String delimiter = ",";
+            String line = null;
+            StringTokenizer strToken = null;
+            BufferedReader bufferReader;
+            bufferReader = new BufferedReader(new FileReader(this.chemin));	//Ouverture du fichier csv
+            while ((line = bufferReader.readLine()) != null)	//parcourir les lignes du fichier CSV tant qu'il y a quelque chose 
+            {
+                
+                strToken = new StringTokenizer(line, delimiter);	//Parcourir les champs séparés par un point virgule ';'
+	        while (strToken.hasMoreTokens()) 
+	        {
+                    chaine = strToken.nextToken();
+                    tableauElement[compteur] = chaine;
+                    compteur++;
+                    if (compteur == 6) 
+                    {
+                        compteur = 0;
+               		p = new Personne(0,tableauElement[0],tableauElement[1],tableauElement[2],tableauElement[3], tableauElement[4],tableauElement[5]);
+                        
+                        //Si ce n'est pas la ligne des titre...
+                        if(tableauElement[0].compareTo("nom_pers") != 0)
+                        {
+                            controleurPersonne pPersonne = new controleurPersonne();
+                            pPersonne.personneAjoutBase(p);
+                        }
+                        
+                    }
+                }
+                
+            }
+           
+            
+        }catch (Exception exception) {
+              JOptionPane.showMessageDialog(this, "Probléme séparateur csv", "Probléme", JOptionPane.WARNING_MESSAGE);
+	}
+    }//GEN-LAST:event_btnImporterActionPerformed
+
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -128,8 +256,13 @@ public class FrameImporter extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFermer;
+    private javax.swing.JButton btnImporter;
+    private javax.swing.JButton btnParcourir;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblInfo;
     private javax.swing.JPanel panImporter;
+    private javax.swing.JTextField txtChemin;
     // End of variables declaration//GEN-END:variables
 }
