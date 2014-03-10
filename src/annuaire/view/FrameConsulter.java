@@ -1,10 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package annuaire.view;
+
+import annuaire.controleur.controleurColloque;
+import java.io.IOException;
+import annuaire.dao.DaoEnsemble;
 
 /**
  *
@@ -12,11 +10,11 @@ package annuaire.view;
  */
 public class FrameConsulter extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrameConsulter
-     */
+    controleurColloque ctrlColloque;
+    
     public FrameConsulter() {
         initComponents();
+        this.ctrlColloque = new controleurColloque ();
     }
 
     /**
@@ -31,6 +29,7 @@ public class FrameConsulter extends javax.swing.JFrame {
         panConsulter = new javax.swing.JPanel();
         lblConsulter = new javax.swing.JLabel();
         btnFermer = new javax.swing.JButton();
+        btnExporter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -47,25 +46,39 @@ public class FrameConsulter extends javax.swing.JFrame {
             }
         });
 
+        btnExporter.setText("Exporter dans un fichier");
+        btnExporter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExporterActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panConsulterLayout = new javax.swing.GroupLayout(panConsulter);
         panConsulter.setLayout(panConsulterLayout);
         panConsulterLayout.setHorizontalGroup(
             panConsulterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panConsulterLayout.createSequentialGroup()
-                .addGap(307, 307, 307)
-                .addComponent(lblConsulter, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panConsulterLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnFermer)
                 .addGap(37, 37, 37))
+            .addGroup(panConsulterLayout.createSequentialGroup()
+                .addGroup(panConsulterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panConsulterLayout.createSequentialGroup()
+                        .addGap(307, 307, 307)
+                        .addComponent(lblConsulter, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panConsulterLayout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(btnExporter)))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
         panConsulterLayout.setVerticalGroup(
             panConsulterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panConsulterLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(lblConsulter)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
+                .addComponent(btnExporter)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(btnFermer)
                 .addGap(39, 39, 39))
         );
@@ -87,6 +100,14 @@ public class FrameConsulter extends javax.swing.JFrame {
     private void btnFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFermerActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnFermerActionPerformed
+
+    private void btnExporterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExporterActionPerformed
+        
+      controleurColloque ctrlColloque = new controleurColloque();
+      ctrlColloque.exporterDonnee();
+        
+      
+    }//GEN-LAST:event_btnExporterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,6 +145,7 @@ public class FrameConsulter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExporter;
     private javax.swing.JButton btnFermer;
     private javax.swing.JLabel lblConsulter;
     private javax.swing.JPanel panConsulter;

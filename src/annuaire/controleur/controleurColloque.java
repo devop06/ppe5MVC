@@ -1,8 +1,14 @@
 package annuaire.controleur;
+import annuaire.dao.DaoEnsemble;
 import annuaire.dao.daoColloque;
 import annuaire.metier.Colloque;
 import annuaire.view.FrameCreerColloque;
-import annuaire.view.FrameSupprimerColloque;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -34,11 +40,38 @@ public class controleurColloque {
                   
       }
       
-      public void colloqueSupprimer(FrameSupprimerColloque frameDelete)
+      /**
+       * Procédure qui exporte les données de l'application dans un fichier CSV
+       * Informations: Personnes inscrites à un évènement uniquement
+       */
+      public void exporterDonnee()
       {
-         // frameDelete.gett
-          // this.dao.supprimer(id);
+          DaoEnsemble ctrlEnsemble = new DaoEnsemble();
+          ResultSet Informations = ctrlEnsemble.getAllInformations();
+          
+          try
+          {
+              FileWriter writer = new FileWriter("donnee.csv");
+              writer.append("Intitulé,");
+              writer.append("Date début");
+              writer.append("\n\n");
+              while(Informations.next())
+              {
+                  writer.append(Informations.getString("intitule")+",");
+                  writer.append(Informations.getString("date_debut")+"\n");
+                  // suite du relevé d'informations
+              }
+              
+              
+              writer.flush();
+              writer.close();
+          }
+          catch ( IOException e)
+          {
+	     e.printStackTrace();
+              
+         } catch (SQLException ex) {
+             System.out.println(ex.toString());
+          }
       }
-               
-    
 }

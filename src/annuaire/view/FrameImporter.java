@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package annuaire.view;
 
 import annuaire.controleur.controleurPersonne;
@@ -171,7 +165,7 @@ String chemin;
             {
                 txtChemin.setText(this.chemin);
             }else{
-                JOptionPane.showMessageDialog(this, "Seul les fichier .csv son acceptés !", "Probléme extension de fichier", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Seul les fichiers .csv sont acceptés !", "Problème extension de fichier", JOptionPane.WARNING_MESSAGE);
             }
             
         }

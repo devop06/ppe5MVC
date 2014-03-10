@@ -40,10 +40,7 @@ public class daoPersonne implements implementPersonne {
             statement.setString(6, p.getObservationPers());
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
-           /** while (rs.next()) {
-               b.setId(rs.getInt(1));
-               
-            }*/
+          
         } catch (SQLException ex) {
             //System.out.println(ex.toString());
         } finally {
@@ -70,87 +67,6 @@ public class daoPersonne implements implementPersonne {
     public List<Personne> getRechercheNom(String nom) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    /**public void update(Personne b) {
-        PreparedStatement statement = null;
-        try {
-            statement = connection.prepareStatement(update);
-            statement.setString(1, b.getNum());
-            statement.setString(2, b.getNom());
-            statement.setString(3, b.getAdresse());
-            statement.setInt(4, b.getId());
-            statement.executeUpdate();
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            try {
-                statement.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-
-    public void supprimer(int id) {
-        PreparedStatement statement = null;
-        try {
-            statement = connection.prepareStatement(delete);
-            statement.setInt(1, id);
-            statement.executeUpdate();
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            try {
-                statement.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-
-    public List<Personne> getALL() {
-        List<Personne> lb = null;
-        try {
-            lb = new ArrayList<Personne>();
-            Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery(select);
-            while (rs.next()) {
-                Personne b = new Personne();
-                b.setId(rs.getInt("id"));
-                b.setNum(rs.getString("num"));
-                b.setNom(rs.getString("nom"));
-                b.setAdresse(rs.getString("adresse"));
-                lb.add(b);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(daoPersonne.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return lb;
-    }
-
-    public List<Personne> getRechercheNom(String nom) {
-        List<Personne> lb = null;
-        try {
-            lb = new ArrayList<Personne>();
-            PreparedStatement st = connection.prepareStatement(recherchenom);
-            st.setString(1, "%" + nom + "%");
-            ResultSet rs = st.executeQuery();
-            while (rs.next()) {
-                Personne b = new Personne();
-                b.setId(rs.getInt("id"));
-                b.setNum(rs.getString("num"));
-                b.setNom(rs.getString("nom"));
-                b.setAdresse(rs.getString("adresse"));
-                lb.add(b);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(daoPersonne.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return lb;
-    }*/
     
      public int getMaxIdP()
     {
